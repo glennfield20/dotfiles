@@ -1,28 +1,27 @@
-" Install vim-plug if we don't already have it
+" download vim-plug if missing
 if empty(glob("~/.vim/autoload/plug.vim"))
-	" Ensure all needed directories exist  (Thanks @kapadiamush)
-	execute 'mkdir -p ~/dotfiles/vim/plugged'
-	execute 'mkdir -p ~/dotfiles/vim/autoload'
-	" Download the actual plugin manager
-	execute '!curl -fLo ~/dotfiles/vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+  silent! execute '!curl --create-dirs -fsSLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * silent! PlugInstall
 endif
 
-call plug#begin('~/.vim/plugged')
+" declare plugins
+silent! if plug#begin()
+	Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+	Plug 'tpope/vim-endwise'
+	Plug 'https://github.com/jiangmiao/auto-pairs.git'
+	Plug 'tpope/vim-rails'
+	Plug 'https://github.com/kien/ctrlp.vim.git'
+	Plug 'tomtom/tcomment_vim'
+	Plug 'https://github.com/jpo/vim-railscasts-theme.git'
+	Plug 'https://github.com/tomasr/molokai.git'
+	Plug 'https://github.com/vim-scripts/ZoomWin.git'
+	Plug 'alvan/vim-closetag'
+	Plug 'gertjanreynaert/cobalt2-vim-theme'
+	Plug 'https://github.com/sheerun/vim-polyglot.git'
 
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'tpope/vim-endwise'
-Plug 'https://github.com/jiangmiao/auto-pairs.git'
-Plug 'tpope/vim-rails'
-Plug 'https://github.com/kien/ctrlp.vim.git'
-Plug 'tomtom/tcomment_vim'
-Plug 'https://github.com/jpo/vim-railscasts-theme.git'
-Plug 'https://github.com/tomasr/molokai.git'
-Plug 'https://github.com/vim-scripts/ZoomWin.git'
-Plug 'alvan/vim-closetag'
-Plug 'gertjanreynaert/cobalt2-vim-theme'
-Plug 'https://github.com/sheerun/vim-polyglot.git'
+  call plug#end()
+endif
 
-call plug#end()
 " Set vim current theme
 colorscheme cobalt2
 " Faster shorcut for commenting. Requires T-Comment Plugin
