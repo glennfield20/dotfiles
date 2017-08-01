@@ -6,6 +6,7 @@ endif
 
 " declare plugins
 silent! if plug#begin()
+
 	Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 	Plug 'tpope/vim-endwise'
 	Plug 'https://github.com/jiangmiao/auto-pairs.git'
