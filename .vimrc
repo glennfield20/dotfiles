@@ -19,6 +19,9 @@ silent! if plug#begin()
 	Plug 'alvan/vim-closetag'
 	Plug 'gertjanreynaert/cobalt2-vim-theme'
 	Plug 'https://github.com/sheerun/vim-polyglot.git'
+	Plug 'https://github.com/tpope/vim-surround.git'
+	Plug 'maxboisvert/vim-simple-complete'
+	Plug 'easymotion/vim-easymotion'
 
   call plug#end()
 endif
@@ -28,22 +31,29 @@ colorscheme cobalt2
 " Faster shorcut for commenting. Requires T-Comment Plugin
 :map <leader>c <c-_><c-_>
 
-" Vim Settings
+" Vim Configuration
 filetype plugin indent on
 set shiftwidth=2
 set tabstop=2
 set noswapfile
 set number
 
-" Settings for ControlP Plugin
+" Configuration for ControlP Plugin
 set wildignore+=*.bmp.*.gif.*.ico.*.jpg.*.png
 set wildignore+=*/tmp/*,*.so,*/node_modules/*,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_working_path_mode = 'ra'
 :map <c-b> :CtrlPBuffer<CR>
 
-" Settings for NERDTree Plugin
+" Configuration for NERDTree Plugin
 :map <Tab> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
+" Configuration for vim-simple-complete
+set complete-=t
+set complete-=i
+
+" Configuration for easymotion
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
