@@ -33,10 +33,10 @@ colorscheme cobalt2
 
 " Vim Configuration
 filetype plugin indent on
-set shiftwidth=2
-set tabstop=2
+set softtabstop=2 sw=2 ts=2
 set noswapfile
 set number
+
 
 " Configuration for ControlP Plugin
 set wildignore+=*.bmp.*.gif.*.ico.*.jpg.*.png
