@@ -1,0 +1,19 @@
+.~lock.*#
+
+# Mac stuff
+.DS_Store
+
+# vim-session
+Session.vim
+
+# Ctags
+tags
+TAGS
+tags
+.tags
+
+# Backup
+*.bak
+*.tmp
+*~
+.*.sw*
