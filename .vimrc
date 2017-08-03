@@ -31,29 +31,29 @@ colorscheme cobalt2
 " Faster shorcut for commenting. Requires T-Comment Plugin
 :map <leader>c <c-_><c-_>
 
-" Vim Configuration
+"Vim Configuration
 filetype plugin indent on
 set softtabstop=2 sw=2 ts=2
 set noswapfile
 set number
 
 
-" Configuration for ControlP Plugin
+"for ControlP Plugin
 set wildignore+=*.bmp.*.gif.*.ico.*.jpg.*.png
 set wildignore+=*/tmp/*,*.so,*/node_modules/*,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_working_path_mode = 'ra'
 :map <c-b> :CtrlPBuffer<CR>
 
-" Configuration for NERDTree Plugin
+"for NERDTree Plugin
 :map <Tab> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
-" Configuration for vim-simple-complete
+"for vim-simple-complete
 set complete-=t
 set complete-=i
 
-" Configuration for easymotion
+"for easymotion
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
