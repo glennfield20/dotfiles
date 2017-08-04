@@ -1,10 +1,10 @@
-" download vim-plug if missing
+" Download vim-plug if missing
 if empty(glob("~/.vim/autoload/plug.vim"))
   silent! execute '!curl --create-dirs -fsSLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * silent! PlugInstall
 endif
 
-" declare plugins
+" Plugins 
 silent! if plug#begin()
 
 	Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -26,34 +26,77 @@ silent! if plug#begin()
   call plug#end()
 endif
 
-" Set vim current theme
+" ===============================================
+"               GENERAL SETTINGS 
+" ===============================================
+
+filetype plugin indent on
 colorscheme cobalt2
-" Faster shorcut for commenting. Requires T-Comment Plugin
+set backspace=indent,eol,start
+set history=1000
+set ruler
+set showcmd
+set autoindent
+set showmatch
+set nowrap
+set autoread
+set autowrite
+set backupdir=~/.tmp
+set directory=~/.tmp
+set viminfo+=!
+set guioptions-=T
+set laststatus=2
+set scrolloff=3
+set sidescrolloff=4
+set hidden
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set relativenumber
+set number
+set wrap
+set linebreak
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set mouse=a
+set shell=bash
+set clipboard=unnamed
+set winwidth=100
+set winheight=5
+set winminheight=5
+set winheight=999
+set noswapfile
+set wildmenu
+set nostartofline
+" (Hopefully) removes the delay when hitting esc in insert mode
+set noesckeys
+set ttimeout
+set ttimeoutlen=1
+set listchars=tab:>-,trail:~,extends:>,precedes:<,space:.
+set path+=**
+
+" T-Comment Plugin
 :map <leader>c <c-_><c-_>
 
-" Vim Configuration
-filetype plugin indent on
-set softtabstop=2 sw=2 ts=2
-set noswapfile
-set number
-
-
-" Configuration for ControlP Plugin
+" CtrlP Plugin
 set wildignore+=*.bmp.*.gif.*.ico.*.jpg.*.png
 set wildignore+=*/tmp/*,*.so,*/node_modules/*,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_working_path_mode = 'ra'
 :map <c-b> :CtrlPBuffer<CR>
 
-" Configuration for NERDTree Plugin
+" NERDTree Plugin
 :map <Tab> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
-" Configuration for vim-simple-complete
+" vim-simple-complete Plugin
 set complete-=t
 set complete-=i
 
-" Configuration for easymotion
+" Easymotion Plugin
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
