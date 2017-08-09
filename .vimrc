@@ -7,21 +7,22 @@ endif
 " Plugins 
 silent! if plug#begin()
 
-	Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-	Plug 'tpope/vim-endwise'
-	Plug 'https://github.com/jiangmiao/auto-pairs.git'
-	Plug 'tpope/vim-rails'
-	Plug 'https://github.com/kien/ctrlp.vim.git'
-	Plug 'tomtom/tcomment_vim'
-	Plug 'https://github.com/jpo/vim-railscasts-theme.git'
-	Plug 'https://github.com/tomasr/molokai.git'
-	Plug 'https://github.com/vim-scripts/ZoomWin.git'
-	Plug 'alvan/vim-closetag'
-	Plug 'gertjanreynaert/cobalt2-vim-theme'
-	Plug 'https://github.com/sheerun/vim-polyglot.git'
-	Plug 'https://github.com/tpope/vim-surround.git'
-	Plug 'maxboisvert/vim-simple-complete'
-	Plug 'easymotion/vim-easymotion'
+  Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+  Plug 'tpope/vim-endwise'
+  Plug 'https://github.com/jiangmiao/auto-pairs.git'
+  Plug 'tpope/vim-rails'
+  Plug 'https://github.com/kien/ctrlp.vim.git'
+  Plug 'tomtom/tcomment_vim'
+  Plug 'https://github.com/jpo/vim-railscasts-theme.git'
+  Plug 'https://github.com/tomasr/molokai.git'
+  Plug 'https://github.com/vim-scripts/ZoomWin.git'
+  Plug 'alvan/vim-closetag'
+  Plug 'gertjanreynaert/cobalt2-vim-theme'
+  Plug 'https://github.com/sheerun/vim-polyglot.git'
+  Plug 'https://github.com/tpope/vim-surround.git'
+  Plug 'maxboisvert/vim-simple-complete'
+  Plug 'easymotion/vim-easymotion'
+  Plug 'https://github.com/mattn/emmet-vim.git'
 
   call plug#end()
 endif
@@ -78,8 +79,18 @@ set ttimeoutlen=1
 set listchars=tab:>-,trail:~,extends:>,precedes:<,space:.
 set path+=**
 
-" T-Comment Plugin
-:map <leader>c <c-_><c-_>
+
+" ===============================================
+"                CUSTOM MAPPING
+" ===============================================
+
+" Search and replace word under cursor using F4
+nnoremap <F4> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i
+
+
+" ===============================================
+"                Manage Plugins
+" ===============================================
 
 " CtrlP Plugin
 set wildignore+=*.bmp.*.gif.*.ico.*.jpg.*.png
@@ -88,15 +99,21 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_working_path_mode = 'ra'
 :map <c-b> :CtrlPBuffer<CR>
 
+" Easymotion Plugin
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
 " NERDTree Plugin
 :map <Tab> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
+" T-Comment Plugin
+:map <leader>c <c-_><c-_>
+
+" Vim-Emmet Plugin
+let g:user_emmet_leader_key='<C-Z>'
+
 " vim-simple-complete Plugin
 set complete-=t
 set complete-=i
-
-" Easymotion Plugin
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
