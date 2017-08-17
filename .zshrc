@@ -92,3 +92,6 @@ fi
 export EDITOR='vim'
 export VISUAL='vim'
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+export NVM_DIR="/home/glennfield/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
