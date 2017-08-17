@@ -91,3 +91,4 @@ fi
 # Set default Editor
 export EDITOR='vim'
 export VISUAL='vim'
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
