@@ -23,6 +23,7 @@ silent! if plug#begin()
   Plug 'maxboisvert/vim-simple-complete'
   Plug 'easymotion/vim-easymotion'
   Plug 'https://github.com/mattn/emmet-vim.git'
+  Plug 'https://github.com/tpope/vim-fugitive.git'
 
   call plug#end()
 endif
