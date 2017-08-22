@@ -17,3 +17,6 @@ tags
 *.tmp
 *~
 .*.sw*
+
+# NPM
+package-lock.json

@@ -24,6 +24,8 @@ silent! if plug#begin()
   Plug 'easymotion/vim-easymotion'
   Plug 'https://github.com/mattn/emmet-vim.git'
   Plug 'https://github.com/tpope/vim-fugitive.git'
+  Plug 'scrooloose/syntastic'
+  Plug 'mtscout6/syntastic-local-eslint.vim'
 
   call plug#end()
 endif
@@ -124,3 +126,17 @@ let g:user_emmet_settings = {
 " vim-simple-complete Plugin
 set complete-=t
 set complete-=i
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_haml_checkers=['haml_lint']
+let g:syntastic_scss_checkers=['stylelint']
+let g:syntastic_ruby_checkers=['rubocop']
