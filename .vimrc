@@ -12,6 +12,7 @@ silent! if plug#begin()
   Plug 'https://github.com/jiangmiao/auto-pairs.git'
   Plug 'tpope/vim-rails'
   Plug 'https://github.com/kien/ctrlp.vim.git'
+  Plug 'wikitopian/hardmode'
   Plug 'tomtom/tcomment_vim'
   Plug 'https://github.com/jpo/vim-railscasts-theme.git'
   Plug 'https://github.com/tomasr/molokai.git'
@@ -24,8 +25,11 @@ silent! if plug#begin()
   Plug 'easymotion/vim-easymotion'
   Plug 'https://github.com/mattn/emmet-vim.git'
   Plug 'https://github.com/tpope/vim-fugitive.git'
-  Plug 'scrooloose/syntastic'
-  Plug 'mtscout6/syntastic-local-eslint.vim'
+  " Plug 'scrooloose/syntastic'
+  " Plug 'mtscout6/syntastic-local-eslint.vim'
+  Plug 'terryma/vim-smooth-scroll'
+  Plug 'elixir-lang/vim-elixir'
+	Plug 'slashmili/alchemist.vim'
 
   call plug#end()
 endif
@@ -53,6 +57,7 @@ set laststatus=2
 set scrolloff=3
 set sidescrolloff=4
 set hidden
+set nohlsearch
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -82,7 +87,6 @@ set ttimeoutlen=1
 set listchars=tab:>-,trail:~,extends:>,precedes:<,space:.
 set path+=**
 
-
 " ===============================================
 "                CUSTOM MAPPING
 " ===============================================
@@ -105,11 +109,15 @@ let g:ctrlp_working_path_mode = 'ra'
 " Easymotion Plugin
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
+" let g:EasyMotion_move_highlight = 0
+" let g:EasyMotion_inc_highlight = 0
 
 " NERDTree Plugin
 :map <Tab> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+let g:NERDTreeMouseMode = 3
+" let g:NERDTreeWinPos = 'right'
 
 " T-Comment Plugin
 :map <leader>c <c-_><c-_>
@@ -128,15 +136,24 @@ set complete-=t
 set complete-=i
 
 " Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_javascript_checkers=['eslint']
+" let g:syntastic_haml_checkers=['haml_lint']
+" let g:syntastic_scss_checkers=['stylelint']
+" let g:syntastic_ruby_checkers=['rubocop']
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers=['eslint']
-let g:syntastic_haml_checkers=['haml_lint']
-let g:syntastic_scss_checkers=['stylelint']
-let g:syntastic_ruby_checkers=['rubocop']
+" Vim-Smooth-Scroll
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+
+" Hardmode
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+
