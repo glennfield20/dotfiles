@@ -109,6 +109,7 @@ let g:ctrlp_working_path_mode = 'ra'
 " Easymotion Plugin
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
+map <Space> :noh<cr>
 " let g:EasyMotion_move_highlight = 0
 " let g:EasyMotion_inc_highlight = 0
 
