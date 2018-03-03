@@ -93,7 +93,8 @@ set path+=**
 
 " Search and replace word under cursor using F4
 nnoremap <F4> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i
-
+:nnoremap j jzz
+:nnoremap k kzz
 
 " ===============================================
 "                Manage Plugins
